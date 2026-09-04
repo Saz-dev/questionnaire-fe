@@ -5,7 +5,7 @@ export function useSystemHealth() {
   return useQuery({
     queryKey: ['system', 'health'],
     queryFn: systemApi.health,
-    refetchInterval: 15_000,
+    refetchInterval: 150_000,
     retry: 1,
   })
 }

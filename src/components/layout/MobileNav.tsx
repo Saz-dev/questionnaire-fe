@@ -1,17 +1,18 @@
 import { NavLink } from 'react-router-dom'
-import { BookMarked, FlaskConical, Search, SlidersHorizontal } from 'lucide-react'
+import { BookMarked, FlaskConical, ListChecks, Search, SlidersHorizontal } from 'lucide-react'
 import { cn } from '@/utils/cn'
 
 const ITEMS = [
   { to: '/', label: 'Research', icon: FlaskConical, end: true },
   { to: '/retrieval', label: 'Retrieval', icon: Search },
   { to: '/knowledge-base', label: 'Knowledge', icon: BookMarked },
+  { to: '/evals', label: 'Evals', icon: ListChecks },
   { to: '/system', label: 'System', icon: SlidersHorizontal },
 ]
 
 export function MobileNav() {
   return (
-    <nav className="grid shrink-0 grid-cols-4 border-t border-[var(--border)] bg-[var(--bg-elevated)] md:hidden">
+    <nav className="grid shrink-0 grid-cols-5 border-t border-[var(--border)] bg-[var(--bg-elevated)] md:hidden">
       {ITEMS.map(({ to, label, icon: Icon, end }) => (
         <NavLink
           key={to}

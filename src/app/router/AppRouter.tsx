@@ -4,6 +4,7 @@ import { ResearchPage } from '@/pages/ResearchPage'
 import { RetrievalPage } from '@/pages/RetrievalPage'
 import { KnowledgeBasePage } from '@/pages/KnowledgeBasePage'
 import { SystemPage } from '@/pages/SystemPage'
+import { EvalsPage } from '@/pages/EvalsPage'
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
       { path: '/', element: <ResearchPage /> },
       { path: '/retrieval', element: <RetrievalPage /> },
       { path: '/knowledge-base', element: <KnowledgeBasePage /> },
+      { path: '/evals', element: <EvalsPage /> },
       { path: '/system', element: <SystemPage /> },
     ],
   },

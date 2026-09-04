@@ -196,3 +196,78 @@ export interface ApiErrorShape {
   message: string
   detail?: unknown
 }
+
+// ----------------------------------------------------------------------
+// Week 6 — evals (GET /api/eval/week6)
+// ----------------------------------------------------------------------
+
+export type FailureModeTag =
+  | 'clean'
+  | 'model-conflation'
+  | 'fails-to-use-info'
+  | 'citation-evidence-mismatch'
+  | 'appropriate-abstention'
+  | 'unsupported-diagnosis'
+
+export type JudgeVerdict = 'PASS' | 'FAIL'
+
+export interface ModeBreakdownRow {
+  mode: FailureModeTag
+  pass_count: number
+  total: number
+  rate: number
+}
+
+export interface EvalCaseDetail {
+  id: string
+  question: string
+  failure_mode_tag: FailureModeTag
+  retrieval_mode: RetrievalMode
+  regression_case: boolean
+  judge_eligible: boolean
+  expected_grounded: boolean
+  assertions: Record<string, boolean | null>
+  assertions_passed: boolean
+  answer: string
+  hand_label: JudgeVerdict | null
+  judge_v1_verdict: JudgeVerdict | null
+  judge_v2_verdict: JudgeVerdict | null
+}
+
+export interface AgreementStat {
+  rate: number
+  matched: number
+  total: number
+}
+
+export interface Disagreement {
+  id: string
+  question: string
+  hand_label: JudgeVerdict
+  hand_label_reason: string
+  judge_v1_verdict: JudgeVerdict
+  judge_v1_reason: string
+  judge_v2_verdict: JudgeVerdict | null
+  judge_v2_reason: string | null
+  resolved_in_v2: boolean
+}
+
+export interface Week6EvalResponse {
+  mode_breakdown: ModeBreakdownRow[]
+  overall_pass_rate: number
+  overall_pass_count: number
+  overall_total: number
+  regression_cases: EvalCaseDetail[]
+  cases: EvalCaseDetail[]
+  assertion_names: string[]
+  replaced_judge_criteria: string[]
+  remaining_judge_criteria: string[]
+  labels_recorded_at: string | null
+  agreement_before: AgreementStat | null
+  agreement_after: AgreementStat | null
+  disagreements: Disagreement[]
+  prediction: string | null
+  prediction_outcome: string | null
+  judge_v1_prompt: string | null
+  judge_v2_prompt: string | null
+}

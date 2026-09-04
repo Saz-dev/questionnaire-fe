@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { to: '/', label: 'Research', end: true },
   { to: '/retrieval', label: 'Retrieval' },
   { to: '/knowledge-base', label: 'Knowledge Base' },
+  { to: '/evals', label: 'Evals' },
   { to: '/system', label: 'System' },
 ]
 
