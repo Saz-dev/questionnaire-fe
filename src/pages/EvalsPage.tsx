@@ -2,6 +2,7 @@ import { Skeleton } from '@/components/ui/Skeleton'
 import { ErrorState } from '@/components/ui/ErrorState'
 import { useWeek6Eval } from '@/features/evals/hooks'
 import { SummaryStats } from '@/features/evals/SummaryStats'
+import { HumanJudgePanel } from '@/features/evals/HumanJudgePanel'
 import { ModeBreakdownPanel } from '@/features/evals/ModeBreakdownPanel'
 import { RegressionPanel } from '@/features/evals/RegressionPanel'
 import { DisagreementsPanel } from '@/features/evals/DisagreementsPanel'
@@ -32,6 +33,7 @@ export function EvalsPage() {
         {data && (
           <>
             <SummaryStats data={data} />
+            <HumanJudgePanel />
             <ModeBreakdownPanel rows={data.mode_breakdown} />
             <RegressionPanel cases={data.regression_cases} />
             <DisagreementsPanel disagreements={data.disagreements} />

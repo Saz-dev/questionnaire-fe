@@ -5,6 +5,7 @@ import { RetrievalPage } from '@/pages/RetrievalPage'
 import { KnowledgeBasePage } from '@/pages/KnowledgeBasePage'
 import { SystemPage } from '@/pages/SystemPage'
 import { EvalsPage } from '@/pages/EvalsPage'
+import { LabelQueuePage } from '@/pages/LabelQueuePage'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { path: '/retrieval', element: <RetrievalPage /> },
       { path: '/knowledge-base', element: <KnowledgeBasePage /> },
       { path: '/evals', element: <EvalsPage /> },
+      { path: '/evals/label', element: <LabelQueuePage /> },
       { path: '/system', element: <SystemPage /> },
     ],
   },

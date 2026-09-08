@@ -44,7 +44,7 @@ export function HealthPanel() {
       </div>
       <div className="border-t border-[var(--border)] px-3.5 py-2.5">
         <Badge tone={data.llm_configured ? 'evidence' : 'danger'} dot>
-          {data.llm_configured ? 'LLM generation configured (Groq)' : 'No LLM key — context-only fallback answers'}
+          {data.llm_configured ? 'LLM generation configured (Gemini)' : 'No LLM key — context-only fallback answers'}
         </Badge>
       </div>
     </Card>

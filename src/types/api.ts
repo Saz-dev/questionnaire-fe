@@ -252,6 +252,29 @@ export interface Disagreement {
   resolved_in_v2: boolean
 }
 
+export interface LabelQueueItem {
+  id: string
+  question: string
+  answer: string
+  context: string
+  existing_verdict: JudgeVerdict | null
+  existing_reason: string | null
+}
+
+export interface LabelSubmitRequest {
+  id: string
+  verdict: JudgeVerdict
+  reason: string
+  labeler: string
+}
+
+export interface LabelSubmitResponse {
+  PASS: number
+  FAIL: number
+  total: number
+  remaining: number
+}
+
 export interface Week6EvalResponse {
   mode_breakdown: ModeBreakdownRow[]
   overall_pass_rate: number
