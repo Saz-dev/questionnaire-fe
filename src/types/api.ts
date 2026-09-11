@@ -294,3 +294,28 @@ export interface Week6EvalResponse {
   judge_v1_prompt: string | null
   judge_v2_prompt: string | null
 }
+
+// ----------------------------------------------------------------------
+// Week 7 — Race
+// ----------------------------------------------------------------------
+
+export interface RaceSummary {
+  system: string
+  pass_rate: number
+  p50_latency_s: number
+  total_tokens: number
+  cost_per_claim: number
+}
+
+export interface RaceResults {
+  summaries: RaceSummary[]
+  race_csv_path: string
+  race_trace_path: string
+  budget_log_path: string
+}
+
+export type RaceStreamEvent =
+  | { event: 'started'; message: string }
+  | { event: 'log'; line: string }
+  | { event: 'finished'; results: RaceResults }
+  | { event: 'error'; message: string }
